@@ -6,20 +6,25 @@ public class Pizza {
 	private String code;
 	private String libelle;
 	private static int idCpt;
+	private CategoriePizza categoriePizza;
 	
-	public Pizza(String code, String libelle, double prix){
+	
+	public Pizza(String code, String libelle, double prix, CategoriePizza cp){
 		id = idCpt++;
 		this.code = code;
 		this.libelle = libelle;
 		this.prix = prix;
+		this.categoriePizza = cp;
 
 	}
 	
-	public Pizza (int id,String code, String libelle, double prix ){
+	public Pizza (int id,String code, String libelle, double prix, CategoriePizza cp ){
 		this.id = id;
 		this.code = code;
 		this.libelle = libelle;
 		this.prix = prix;
+		this.categoriePizza = cp;
+		
 
 	}
 	public Pizza() {}
@@ -41,9 +46,12 @@ public class Pizza {
 	
 	@Override
 	public String toString() {
-		return code + " -> " + libelle + " (" + prix + "€)";
+		String categorie = categoriePizza.getCategorie();
+		return code + " -> " + libelle + " : " + categorie + " (" + prix + "€)";
 	}
+	
 
+	
 	public int getId() {
 		return id;
 	}
@@ -74,6 +82,14 @@ public class Pizza {
 
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
+	}
+
+	public CategoriePizza getCategoriePizza() {
+		return categoriePizza;
+	}
+
+	public void setCategoriePizza(CategoriePizza categoriePizza) {
+		this.categoriePizza = categoriePizza;
 	}
 
 

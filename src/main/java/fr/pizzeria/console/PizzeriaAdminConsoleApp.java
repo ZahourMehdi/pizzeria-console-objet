@@ -45,7 +45,7 @@ public class PizzeriaAdminConsoleApp{
 			}
 
 			
-			//Permet de soritr de l'application
+			//Permet de sortir de l'application
 			if (choix == 99)
 				a = false;
 		}
