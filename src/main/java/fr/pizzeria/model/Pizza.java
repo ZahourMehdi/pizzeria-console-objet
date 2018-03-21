@@ -24,6 +24,21 @@ public class Pizza {
 	}
 	public Pizza() {}
 	
+	public boolean equals(Object object){
+		//Permet de vérifier à la fois que object est non null et
+		// que c'est une instance de Pizza
+		
+		if (!(object instanceof Pizza)) {
+			return false;
+		}
+		Pizza other = (Pizza)object;
+		if (this.code.equals(other.getCode())
+			&& this.libelle.equals(other.getLibelle())
+			&& this.prix == other.getPrix())
+			return true;
+		return false;
+	}
+	
 	@Override
 	public String toString() {
 		return code + " -> " + libelle + " (" + prix + "€)";
