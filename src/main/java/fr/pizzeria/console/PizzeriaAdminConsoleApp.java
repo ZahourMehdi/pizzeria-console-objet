@@ -12,12 +12,15 @@ import fr.pizzeria.model.Pizza;
 import fr.pizzeria.dao.PizzaMemDao;
 
 import fr.pizzeria.services.*;
+
 public class PizzeriaAdminConsoleApp{
 	
 
 	private static Scanner option = new Scanner(System.in);
 	private static PizzaMemDao pizzaDao = new PizzaMemDao();
-	private static ListerPizzaService listePizzaService = new ListerPizzaService();
+	private static MenuServiceFactory msf = new MenuServiceFactory();
+	
+	//private static ListerPizzaService listePizzaService = new ListerPizzaService();
 	private static AjouterPizzaService ajoutPizzaService = new AjouterPizzaService();
 	private static ModifierPizzaService modifiePizzaService = new ModifierPizzaService();
 	private static SupprimerPizzaService supprimePizzaService = new SupprimerPizzaService();
@@ -37,11 +40,23 @@ public class PizzeriaAdminConsoleApp{
 			System.out.println("99. Sortir");
 
 			int choix = option.nextInt();
+			
 			//Permet d'effectuer des actions différentes en fonction du nombres rentré
-			switch (choix) {
+			MenuService ms = msf.getInstance(choix);	
+			ms.executeUC(pizzaDao, option);
+			
+			//Permet de soritr de l'application
+			if (choix == 99)
+				a = false;
+			
+			
+			/*switch (choix) {
 			case 1:
 				//Affiche la liste des pizzas
-				listePizzaService.executeUC(pizzaDao, option);
+				//listePizzaService.executeUC(pizzaDao, option);
+				msf.getInstance(choix);
+				
+				
 				break;
 				
 			//Ajout d'une nouvelle pizza
@@ -65,7 +80,7 @@ public class PizzeriaAdminConsoleApp{
 			default:
 				System.out.println("Erreur, entrer un des nombres proposés");
 				break;
-			}
+			}*/
 		}
 	}
 
