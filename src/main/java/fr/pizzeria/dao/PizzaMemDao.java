@@ -13,7 +13,7 @@ public class PizzaMemDao implements IPizzaDao{
 	public PizzaMemDao(){
 		listPizza.add(new Pizza(0,"PEP","Pépéroni",12.50, CategoriePizza.VIANDE));
 		listPizza.add(new Pizza(1,"MAR","Margherita",14.00, CategoriePizza.SANS_VIANDE));
-		listPizza.add(new Pizza(2,"REIN","La Reine",11.50, CategoriePizza.VIANDE));
+		listPizza.add(new Pizza(2,"REI","La Reine",11.50, CategoriePizza.VIANDE));
 		listPizza.add(new Pizza(3,"FRO","La 4 fromages",12.00, CategoriePizza.SANS_VIANDE));
 		listPizza.add(new Pizza(4,"CAN","La cannibale",12.50, CategoriePizza.VIANDE));
 		listPizza.add(new Pizza(5,"SAV","La savoyarde",13.00, CategoriePizza.VIANDE));

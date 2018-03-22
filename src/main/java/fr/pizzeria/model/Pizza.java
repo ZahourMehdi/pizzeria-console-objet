@@ -1,12 +1,27 @@
 package fr.pizzeria.model;
 
+import java.lang.reflect.Field;
+import java.util.Iterator;
+
+import fr.pizzeria.utils.*;
+
 public class Pizza {
 	private int id;
-	private double prix;
+	
+
+	
+	@ToString(toUpperCase=true, toSeparate=" -> ")
 	private String code;
+	
+	@ToString(toUpperCase=false)
 	private String libelle;
-	private static int idCpt;
+
 	private CategoriePizza categoriePizza;
+	
+	@ToString(isPrice = true,beforePrice="( ", afterPrice=" €)")
+	private double prix;
+	
+	private static int idCpt;
 	
 	
 	public Pizza(String code, String libelle, double prix, CategoriePizza cp){
@@ -46,8 +61,9 @@ public class Pizza {
 	
 	@Override
 	public String toString() {
-		String categorie = categoriePizza.getCategorie();
-		return code + " -> " + libelle + " : " + categorie + " (" + prix + "€)";
+		
+		return StringUtils.annotationStringUtils(this);
+	
 	}
 	
 
