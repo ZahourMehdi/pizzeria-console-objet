@@ -18,6 +18,8 @@ public class MenuServiceFactory {
 		
 		case 4:
 			return new SupprimerPizzaService();
+		case 5:
+			return new CreerPizzaPdfService();
 		case 99:
 			return new SortirPizzaService();
 

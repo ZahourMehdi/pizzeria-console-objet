@@ -18,7 +18,7 @@ public class Pizza {
 
 	private CategoriePizza categoriePizza;
 	
-	@ToString(isPrice = true,beforePrice="( ", afterPrice=" €)")
+	@ToString(isPrice = true,beforePrice=" (", afterPrice="€)")
 	private double prix;
 	
 	private static int idCpt;
