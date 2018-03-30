@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class SupprimerPizzaService extends MenuService {
 	
 	public void executeUC(PizzaMemDao listPizzaDao, Scanner option) throws StockageException{
-		System.out.println("Suppression d'une pizza");
-		System.out.println("Veuillez choisie le code de la pizza à supprimer");
+		LOG.info("Suppression d'une pizza");
+		LOG.info("Veuillez choisie le code de la pizza à supprimer");
 		String codePizzaDel = option.next();
 		
 		if (codePizzaDel.length() > 3)

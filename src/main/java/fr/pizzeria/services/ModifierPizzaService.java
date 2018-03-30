@@ -9,17 +9,18 @@ public class ModifierPizzaService extends MenuService {
 
 	
 	public void executeUC(PizzaMemDao listPizzaDao, Scanner option) throws StockageException{
-		System.out.println("Mise à jour d'une pizza");
-		System.out.println("Veuillez choisie le code de la pizza à modifier");
+		LOG.info("Mise à jour d'une pizza");
+
+		LOG.info("Veuillez choisie le code de la pizza à modifier");
 		String codePizzaUp = option.next();
-		System.out.println("Veuillez saisir nouveau le code : ");
+		LOG.info("Veuillez saisir nouveau le code : ");
 		String nvCodePizza = option.next();
-		System.out.println("Veuillez saisir le nouveau nom (sans espace) : ");
+		LOG.info("Veuillez saisir le nouveau nom (sans espace) : ");
 		String libellePizzaUp = option.next();
-		System.out.println("Veuillez saisir nouveau le prix : ");
+		LOG.info("Veuillez saisir nouveau le prix : ");
 		String prix = option.next();
 		double prixPizzaUp = Double.parseDouble(prix);
-		System.out.println("Veuillez saisir la catégorie de la pizza (VIANDE,SANS_VIANDE,POISSON): ");
+		LOG.info("Veuillez saisir la catégorie de la pizza (VIANDE,SANS_VIANDE,POISSON): ");
 		String categorie = option.next();
 		categorie = categorie.toUpperCase();
 		

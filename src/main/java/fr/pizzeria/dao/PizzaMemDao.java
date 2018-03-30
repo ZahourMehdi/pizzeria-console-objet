@@ -65,11 +65,9 @@ public class PizzaMemDao implements IPizzaDao{
 
 	@Override
 	public boolean pizzaExists(String codePizza) {
-		for (int i = 0; i < listPizza.size(); i++) {
+		for (int i = 0; i < listPizza.size();i++) {
 			if (listPizza.get(i).getCode().equals(codePizza)) {
 				return true;
-			} else {
-				return false;
 			}
 		}
 		return false;
