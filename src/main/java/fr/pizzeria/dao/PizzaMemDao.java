@@ -3,6 +3,7 @@ package fr.pizzeria.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.pizzeria.exception.NullCodeException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
@@ -33,9 +34,11 @@ public class PizzaMemDao implements IPizzaDao{
 	}
 
 	@Override
-	public void updatePizza(String codePizza, Pizza pizza) {
-
+	public void updatePizza(String codePizza, Pizza pizza) throws NullCodeException {
 		Pizza upPizza = findPizzaByCode(codePizza);
+		if (upPizza== null){
+			throw new NullCodeException();
+		}
 		upPizza.setCode(pizza.getCode());
 		upPizza.setLibelle(pizza.getLibelle());
 		upPizza.setPrix(pizza.getPrix());

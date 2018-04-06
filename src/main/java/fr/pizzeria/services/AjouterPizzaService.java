@@ -1,5 +1,6 @@
 package fr.pizzeria.services;
 
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaMemDao;
 import fr.pizzeria.exception.*;
 import fr.pizzeria.model.CategoriePizza;
@@ -9,7 +10,7 @@ public class AjouterPizzaService extends MenuService  {
 
 
 	
-	public void executeUC(PizzaMemDao listPizzaDao, Scanner option) throws StockageException{
+	public void executeUC(IPizzaDao listPizzaDao, Scanner option) throws StockageException{
 		
 		//Ajoute une nouvelle pizza
 		LOG.info("Ajout d'une nouvelle pizza");
@@ -44,6 +45,7 @@ public class AjouterPizzaService extends MenuService  {
 		listPizzaDao.saveNewPizza(newPizza);
 		
 		
-	};
+	}
+
 	
 }

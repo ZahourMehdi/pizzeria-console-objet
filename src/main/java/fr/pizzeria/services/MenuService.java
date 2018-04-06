@@ -11,5 +11,5 @@ public abstract class MenuService {
 	
 	protected static final Logger LOG = LoggerFactory.getLogger(MenuService.class);
 	
-	public abstract void executeUC(PizzaMemDao listPizzaDao, Scanner option) throws StockageException;
+	public abstract void executeUC(IPizzaDao listPizzaDao, Scanner option) throws StockageException;
 }

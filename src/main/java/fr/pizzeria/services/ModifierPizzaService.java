@@ -1,5 +1,6 @@
 package fr.pizzeria.services;
 
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaMemDao;
 import fr.pizzeria.exception.*;
 import fr.pizzeria.model.CategoriePizza;
@@ -8,7 +9,7 @@ import java.util.Scanner;
 public class ModifierPizzaService extends MenuService {
 
 	
-	public void executeUC(PizzaMemDao listPizzaDao, Scanner option) throws StockageException{
+	public void executeUC(IPizzaDao listPizzaDao, Scanner option) throws StockageException{
 		LOG.info("Mise à jour d'une pizza");
 
 		LOG.info("Veuillez choisie le code de la pizza à modifier");
@@ -42,6 +43,7 @@ public class ModifierPizzaService extends MenuService {
 		Pizza upPizza = new Pizza(nvCodePizza,libellePizzaUp,prixPizzaUp,catPizza);
 		listPizzaDao.updatePizza(codePizzaUp,upPizza);  
 		
-	};
+	}
+
 	
 }

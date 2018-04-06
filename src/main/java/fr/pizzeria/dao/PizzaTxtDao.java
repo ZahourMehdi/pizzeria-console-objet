@@ -80,7 +80,7 @@ public class PizzaTxtDao implements IPizzaTxtDao {
 	}
 	
 	//Genere un pdf de la carte des pizzas
-	public void generatePdf(PizzaMemDao pmd){
+	public void generatePdf(IPizzaDao pmd){
 		
 		Document document = new Document();
 		

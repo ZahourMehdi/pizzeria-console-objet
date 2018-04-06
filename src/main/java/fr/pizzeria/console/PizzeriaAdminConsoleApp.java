@@ -5,6 +5,8 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import fr.pizzeria.dao.IPizzaDao;
+import fr.pizzeria.dao.PizzaDbDao;
 import fr.pizzeria.dao.PizzaMemDao;
 import fr.pizzeria.dao.PizzaTxtDao;
 
@@ -16,15 +18,14 @@ public class PizzeriaAdminConsoleApp{
 	
 
 	private static Scanner option = new Scanner(System.in);
-	private static PizzaMemDao pizzaDao = new PizzaMemDao();
-	//private static PizzaTxtDao pizzaTxtDao = new PizzaTxtDao();
+	private static IPizzaDao pizzaDao = new PizzaDbDao();
+	private static PizzaTxtDao pizzaTxtDao = new PizzaTxtDao();
 	private static MenuServiceFactory msf = new MenuServiceFactory();
 	
 	private static  final Logger LOG = LoggerFactory.getLogger(MenuService.class);
 	
 	public static void main(String[] args) {
-		PizzaTxtDao pizzaTxtDao = new PizzaTxtDao();
-		
+
 		boolean a = true;
 		while(a){
 			//Affichage du menu
@@ -43,7 +44,7 @@ public class PizzeriaAdminConsoleApp{
 				MenuService ms = msf.getInstance(choix);	
 				ms.executeUC(pizzaDao, option);
 			} catch (StockageException e) {
-				System.out.println(e.getMessage());
+				LOG.error(e.getMessage());
 			}
 
 			

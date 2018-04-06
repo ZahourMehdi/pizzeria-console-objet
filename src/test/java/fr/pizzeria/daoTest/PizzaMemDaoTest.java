@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 import fr.pizzeria.dao.*;
+import fr.pizzeria.exception.NullCodeException;
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -54,9 +55,10 @@ public class PizzaMemDaoTest {
 
 	/**
 	 * Test sur modification d'une pizza
+	 * @throws NullCodeException 
 	 */
 	@Test
-	public void testUpdatePizza(){
+	public void testUpdatePizza() throws NullCodeException{
 		PizzaMemDao dao = new PizzaMemDao();
 		String code = "PEP";
 		int idBefore = dao.findPizzaByCode(code).getId();
@@ -76,9 +78,10 @@ public class PizzaMemDaoTest {
 	
 	/**
 	 * Test si la modification d'une pizza n'agrandit pas la list de pizza
+	 * @throws NullCodeException 
 	 */
 	@Test
-	public void testUpdatePizza_length(){
+	public void testUpdatePizza_length() throws NullCodeException{
 		Pizza p = new Pizza("PIZ", "PIZZZA", 20.0,  CategoriePizza.VIANDE);
 		PizzaMemDao dao = new PizzaMemDao();
 		List<Pizza> listP = dao.findAllPizzas();

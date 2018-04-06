@@ -1,6 +1,7 @@
 package fr.pizzeria.services;
 
 
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaMemDao;
 import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.LongueurCodeException;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 
 public class SupprimerPizzaService extends MenuService {
 	
-	public void executeUC(PizzaMemDao listPizzaDao, Scanner option) throws StockageException{
+	public void executeUC(IPizzaDao listPizzaDao, Scanner option) throws StockageException{
 		LOG.info("Suppression d'une pizza");
 		LOG.info("Veuillez choisie le code de la pizza à supprimer");
 		String codePizzaDel = option.next();
