@@ -21,7 +21,7 @@ import fr.pizzeria.model.Pizza;
 
 
 
-public class PizzaTxtDao implements IPizzaTxtDao {
+public class PizzaTxtDao implements IPizzaDao {
 	
 	public PizzaTxtDao (){
 		

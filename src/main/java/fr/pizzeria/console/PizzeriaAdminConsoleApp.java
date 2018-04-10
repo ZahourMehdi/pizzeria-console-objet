@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDbDao;
+import fr.pizzeria.dao.PizzaJpaDao;
 import fr.pizzeria.dao.PizzaMemDao;
 import fr.pizzeria.dao.PizzaTxtDao;
 
@@ -18,8 +19,9 @@ public class PizzeriaAdminConsoleApp{
 	
 
 	private static Scanner option = new Scanner(System.in);
-	private static IPizzaDao pizzaDao = new PizzaDbDao();
+	//private static IPizzaDao pizzaDao = new PizzaDbDao();
 	private static PizzaTxtDao pizzaTxtDao = new PizzaTxtDao();
+	private static IPizzaDao pizzaJpa = new PizzaJpaDao();
 	private static MenuServiceFactory msf = new MenuServiceFactory();
 	
 	private static  final Logger LOG = LoggerFactory.getLogger(MenuService.class);
@@ -42,7 +44,7 @@ public class PizzeriaAdminConsoleApp{
 			//Permet d'effectuer des actions différentes en fonction du nombres rentré
 			try {
 				MenuService ms = msf.getInstance(choix);	
-				ms.executeUC(pizzaDao, option);
+				ms.executeUC(pizzaJpa, option);
 			} catch (StockageException e) {
 				LOG.error(e.getMessage());
 			}

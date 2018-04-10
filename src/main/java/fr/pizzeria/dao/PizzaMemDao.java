@@ -7,10 +7,19 @@ import fr.pizzeria.exception.NullCodeException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PizzaMemDao.
+ * @author Zahour Mehdi
+ */
 public class PizzaMemDao implements IPizzaDao{
 
+	/** The list pizza. */
 	private static List <Pizza> listPizza = new ArrayList();
 	
+	/**
+	 * Instantiates a new pizza mem dao.
+	 */
 	public PizzaMemDao(){
 		listPizza.add(new Pizza(0,"PEP","Pépéroni",12.50, CategoriePizza.VIANDE));
 		listPizza.add(new Pizza(1,"MAR","Margherita",14.00, CategoriePizza.SANS_VIANDE));
@@ -23,16 +32,25 @@ public class PizzaMemDao implements IPizzaDao{
 		
 	}
 	
+	/* 
+	 * retourne la liste des pizza enregister
+	 */
 	@Override
 	public List<Pizza> findAllPizzas() {
 			return listPizza;
 	}
 
+	/* 
+	 * Permet d'enregistrer une nouvelle pizza
+	 */
 	@Override
 	public void saveNewPizza(Pizza pizza) {
 		listPizza.add(pizza);
 	}
 
+	/* 
+	 * Permet de modifier une pizza des existante
+	 */
 	@Override
 	public void updatePizza(String codePizza, Pizza pizza) throws NullCodeException {
 		Pizza upPizza = findPizzaByCode(codePizza);
@@ -45,6 +63,9 @@ public class PizzaMemDao implements IPizzaDao{
 		upPizza.setCategoriePizza(pizza.getCategoriePizza());
 	}
 
+	/* 
+	 * Permet de supprimer un pizza
+	 */
 	@Override
 	public void deletePizza(String codePizza) {
 		Pizza delPizza = findPizzaByCode(codePizza);
@@ -56,6 +77,9 @@ public class PizzaMemDao implements IPizzaDao{
 		}
 	}
 
+	/* 
+	 * Permet de chercher une pizza grace a son code
+	 */
 	@Override
 	public Pizza findPizzaByCode(String codePizza) {
 		for (int i = 0; i < listPizza.size(); i++) {
@@ -66,6 +90,9 @@ public class PizzaMemDao implements IPizzaDao{
 		return null;
 	}
 
+	/*
+	 * Verifie si une pizza existe
+	 */
 	@Override
 	public boolean pizzaExists(String codePizza) {
 		for (int i = 0; i < listPizza.size();i++) {
